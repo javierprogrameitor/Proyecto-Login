@@ -1,61 +1,87 @@
 *{
-    margin 0;
-    padding 0;
+    margin: 0;
+    padding: 0;
+  }
+
+body{
+  background: #a9d6e5;
 }
 
-body {
-    font-family: Arial, sans-serif;
-    
-}
-.login-container {
-    width: 300px;
-    margin: 0 auto;
-    padding: 80px;
-    border: 1px solid #ccc;
-    background-color: #dfd2d2;
+  main{
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  input{
+    padding: 10px;
+    border-radius: 15px;
+  }
+  
+  button{
+    padding: 15px 30px;
     border-radius: 5px;
-    box-shadow: 10px 10px 15px #888;
-}
-.form-group {
-    margin-bottom: 10px;
-}
-label {
-    display: block;
-    margin-bottom: 5px;
-    box-shadow: 0,0,5px #888;
-    color: blue;
-}
-input[type="text"],
-input[type="password"], 
-input[type="email"]{
-    width: 100%;
-    padding: 8px;
-    margin: 10px;
-    border: 1px solid #ccc;
-    border-radius: 3px;
-}
-button {
-    padding: 10px 15px;
-    background-color: #007bff;
-    color: #fff;
-    border: none;
-    border-radius: 3px;
+    background: #f0cb09;
     cursor: pointer;
-}
-button:hover {
-    background-color: red;
-}
-h2{
-    color: #FF5733; 
-    background-color: #F5F5F5; 
-    padding: 10px 20px; 
-    text-align: center; 
-    font-size: 24px;
-}
-p{
-    font-size: 10px;
-}
-.notAvailable{
+  }
+  
+  .success{
+    border: solid 3px green;
+  }
+  
+  .error{
+    border: solid 2px red;
+  }
+  
+  .notAvailable{
     cursor: default;
-    background: #ea0a0a;
+    background: #fff7d1;
+    opacity: 30%;
+  }
+  
+  #loginForm{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    padding: 10%;
+    border: 1px solid black;
+    background: #fffaf3;
+  }
+  
+  .inputContainer{
+    display: flex;
+    flex-direction: column;
+  }
+  
+  h2{ 
+    color: #f2542d;
+    text-align: center;
+    font-size: 35px;
+    padding: 10px;
+
+  }
+
+
+  .login-container{
+    border: 1px solid #8338ec; /* Borde del div */
+    padding: 20px; /* Espaciado interno */
+    width: 300px; /* Ancho del div */
+    margin: 0 auto; /* Centrar horizontalmente */
+    border-radius: 5px; /* Bordes redondeados */
+    box-shadow: 0 10px 15px rgba(0, 5, 5, 5); /* Sombra */
+  }
+/* Estilo para la etiqueta */
+.inputContainer label {
+  display: block; 
+  font-weight: bold;
+  color: #f2542d;
+  margin-bottom: 5px;
+}
+
+
+  p{
+    font-size: 12px;
+    color: #fb5607;
   }
