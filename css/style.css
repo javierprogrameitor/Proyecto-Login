@@ -81,7 +81,7 @@ body{
 }
 
 
-  p{
+.inputContainer #parrafo{
     font-size: 12px;
-    color: #fb5607;
+    color: #AE2B1D;
   }

@@ -3,11 +3,14 @@ let inputUser = document.getElementById("user");
 let inputPass = document.getElementById("password");
 let inputRepitPass = document.getElementById("repitpass");
 let inputTelefono = document.getElementById("telefono");
+let inputcheck = document.getElementById("micheckbok");
 let submitButton = document.getElementById("button");
+
 
 let nameValid = false;
 let passwordValid = false;
 let telefonoValid = false;
+//let checkValid = true;
 let regexName = /^[a-zA-Z ]+$/;
 let regexPassword = /^[a-zA-Z0-9]{6,}$/;
 let regexTelefono = /^\d{9}$/;
@@ -17,6 +20,7 @@ const USERNAME_INVALID = "Nombre con sólo letras y espacios";
 const PASSWORD_INVALID = "Contraseña con 6 o más carácteres";
 const REPITPASS_INVALID = "Repite la contraseña no coincide";
 const TLF_INVALID = "Telefono incorrecto";
+const CHECK_INVALID = "Por favor, acepta los términos y condiciones";
 
 
 
@@ -24,41 +28,43 @@ inputUser.addEventListener("blur", validName);
 inputPass.addEventListener("blur", validPassword);
 inputRepitPass.addEventListener("blur", validRepitPass);
 inputTelefono.addEventListener("blur", validTelefono);
+//inputcheck.addEventListener("blur", validCheck);
 
 function check() {
-    if (nameValid && passwordValid && telefonoValid) {
-      submitButton.classList.remove("notAvailable");
-    } else {
-      submitButton.classList = "notAvailable";
-    }
+  if (nameValid && passwordValid && telefonoValid) {
+    submitButton.classList.remove("notAvailable");
+  } else {
+    submitButton.classList = "notAvailable";
+  }
+}
+
+
+function validName() {
+  nameValid = regexName.test(inputUser.value);
+  inputUser.className = nameValid ? "success" : "error";
+
+  if (!nameValid) {
+    // Obtenemos la etiqueta <small> del div al que pertenece el input
+    inputUser.parentNode.getElementsByTagName("small")[0].innerHTML = USERNAME_INVALID;
+  } else {
+    inputUser.parentNode.getElementsByTagName("small")[0].innerHTML = "";
   }
 
-  function validName() {
-    nameValid = regexName.test(inputUser.value);
-    inputUser.className = nameValid ? "success" : "error";
-  
-    if (!nameValid) {
-      // Obtenemos la etiqueta <small> del div al que pertenece el input
-      inputUser.parentNode.getElementsByTagName("small")[0].innerHTML = USERNAME_INVALID;
-    } else {
-      inputUser.parentNode.getElementsByTagName("small")[0].innerHTML = "";
-    }
-
-    check();
+  check();
 }
 
 function validPassword() {
-    passwordValid = regexPassword.test(inputPass.value);
-    inputPass.className = passwordValid ? "success" : "error";
-  
-    if (!passwordValid) {
-      // Obtenemos la etiqueta <small> del div al que pertenece el input
-      inputPass.parentNode.getElementsByTagName("small")[0].innerHTML = PASSWORD_INVALID;
-    } else {
-        inputPass.parentNode.getElementsByTagName("small")[0].innerHTML = "";
-    }
+  passwordValid = regexPassword.test(inputPass.value);
+  inputPass.className = passwordValid ? "success" : "error";
 
-    check();
+  if (!passwordValid) {
+    // Obtenemos la etiqueta <small> del div al que pertenece el input
+    inputPass.parentNode.getElementsByTagName("small")[0].innerHTML = PASSWORD_INVALID;
+  } else {
+    inputPass.parentNode.getElementsByTagName("small")[0].innerHTML = "";
+  }
+
+  check();
 }
 
 function validRepitPass() {
@@ -66,17 +72,17 @@ function validRepitPass() {
   let pass = document.getElementById("password").value;
   let rept = document.getElementById("repitpass").value;
 
-  if(pass === rept){
+  if (pass === rept) {
     inputRepitPass.className = "success";
 
     inputRepitPass.parentNode.getElementsByTagName("small")[0].innerHTML = "";
-    } else {
-      inputRepitPass.className = "error";
-      // Obtenemos la etiqueta <small> del div al que pertenece el input
-      inputRepitPass.parentNode.getElementsByTagName("small")[0].innerHTML = REPITPASS_INVALID;
-    }
-  check();
+  } else {
+    inputRepitPass.className = "error";
+    // Obtenemos la etiqueta <small> del div al que pertenece el input
+    inputRepitPass.parentNode.getElementsByTagName("small")[0].innerHTML = REPITPASS_INVALID;
   }
+  check();
+}
 
 function validTelefono() {
   telefonoValid = regexTelefono.test(inputTelefono.value);
@@ -86,10 +92,41 @@ function validTelefono() {
     // Obtenemos la etiqueta <small> del div al que pertenece el input
     inputTelefono.parentNode.getElementsByTagName("small")[0].innerHTML = TLF_INVALID;
   } else {
-      inputTelefono.parentNode.getElementsByTagName("small")[0].innerHTML = "";
+    inputTelefono.parentNode.getElementsByTagName("small")[0].innerHTML = "";
   }
   check();
 }
+/*
+function validCheck() {
+
+  if (inputcheck.checkVisibility == false) {
+
+    inputcheck.className = "error";
+    inputcheck.parentNode.getElementsByTagName("small")[0].innerHTML = CHECK_INVALID;
+
+  } else {
+
+    inputcheck.className = "success";
+    inputcheck.parentNode.getElementsByTagName("small")[0].innerHTML = "";
+
+  }
+  check();
+}
+*/
+
+inputcheck.addEventListener('change', function(){
+
+  if (inputcheck.ariaChecked) {
+    inputcheck.className = "success";
+    inputcheck.parentNode.getElementsByTagName("small")[0].innerHTML = "";
+
+  } else {
+    inputcheck.className = "error";
+    inputcheck.parentNode.getElementsByTagName("small")[0].innerHTML = CHECK_INVALID;
+
+  }
+
+});
 
 form.addEventListener('submit', event => {
   /*

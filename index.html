@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,6 +8,7 @@
     <script src="./js/script.js" defer></script>
     <title>Login Javascript</title>
 </head>
+
 <body>
     <div class="login-container">
         <h2>Registro</h2>
@@ -23,7 +25,7 @@
             </div>
             <div class="inputContainer">
                 <label for="repitpass">Repite tu Contraseña:</label>
-                <input id="repitpass" type="password"  name="repitpass" placeholder="Repass" required>
+                <input id="repitpass" type="password" name="repitpass" placeholder="Repass" required>
                 <small> </small>
             </div>
             <div class="inputContainer">
@@ -31,15 +33,20 @@
                 <input id="telefono" type="text" name="telefono" placeholder="Teléfono" required>
                 <small> </small>
             </div>
-            <div>
-                <p>
+            <div class="inputContainer">
+                <label for="checkbox">¿Aceptas los términos y condiciones?
+                    <input id="micheckbox" type="checkbox" name="micheckbox" required>
+                </label>
+                <small> </small>
+                <p id="parrafo">
                     Al identificarte aceptas nuestras Condiciones de uso.
-                     Consulta nuestro Aviso de privacidad, nuestro Aviso de Cookies y 
-                     nuestro Aviso sobre publicidad basada en los intereses del usuario.
+                    Consulta nuestro Aviso de privacidad, nuestro Aviso de Cookies y
+                    nuestro Aviso sobre publicidad basada en los intereses del usuario.
                 </p>
             </div>
             <button id="button" type="submit" class="notAvailable">Crear cuenta</button>
         </form>
     </div>
 </body>
+
 </html>
